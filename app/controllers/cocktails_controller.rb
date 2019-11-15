@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
+  before_action :set_cocktail, only: %i[show edit update destroy]
 
   # GET /cocktails
   # GET /cocktails.json
@@ -10,6 +12,7 @@ class CocktailsController < ApplicationController
   # GET /cocktails/1
   # GET /cocktails/1.json
   def show
+    @cocktail_doses = @cocktail.doses
   end
 
   # GET /cocktails/new
@@ -18,8 +21,7 @@ class CocktailsController < ApplicationController
   end
 
   # GET /cocktails/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cocktails
   # POST /cocktails.json
@@ -62,13 +64,14 @@ class CocktailsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cocktail
-      @cocktail = Cocktail.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cocktail_params
-      params.require(:cocktail).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cocktail
+    @cocktail = Cocktail.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def cocktail_params
+    params.require(:cocktail).permit(:name)
+  end
 end

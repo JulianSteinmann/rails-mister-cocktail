@@ -18,7 +18,7 @@
         <td><%= dose.description %></td>
         <td><%= dose.ingredient %></td>
         <td><%= dose.cocktail %></td>
-        <td><%= link_to 'Show', dose %></td>
+        <td><%= link_to 'Show', dose_path %></td>
         <td><%= link_to 'Edit', edit_dose_path(dose) %></td>
         <td><%= link_to 'Destroy', dose, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

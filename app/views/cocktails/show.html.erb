@@ -3,7 +3,10 @@
 <p>
   <strong>Name:</strong>
   <%= @cocktail.name %>
+  <%= @cocktail_doses %>
 </p>
 
-<%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
+
+<%= link_to 'Edit name', edit_cocktail_path(@cocktail) %> |
+<%= link_to 'Edit doses', edit_cocktail_path(@cocktail) %> |
 <%= link_to 'Back', cocktails_path %>
